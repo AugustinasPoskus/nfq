@@ -1,5 +1,5 @@
 <?PHP
-require_once('/connect_db.php');
+require_once('/config/config.php');
 $Id = $_GET['id'];
 $sql = "SELECT Id, Title, Release_year, Genre FROM `heroku_0a0df9fb0b9482b`.book WHERE Id = $Id";
 $sql2 = "SELECT At.Name, At.LastName FROM `heroku_0a0df9fb0b9482b`.book AS Bk , 
