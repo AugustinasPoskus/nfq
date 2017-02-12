@@ -1,0 +1,33 @@
+	.list-group{
+		width: 200px;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.pagination a {
+		color: black;
+		padding: 8px 16px;
+		text-decoration: none;
+	}
+
+	.pagination a.selected-page {
+		padding: 8px 16px;
+		background-color: green;
+		color: white;
+	}
+
+	.pagination a:hover:not(.selected-page) {
+		background-color: #ddd;
+	}
+	h2{
+		text-align: center
+	}
+	p{
+		text-align: center
+	}
+	.pagination {
+		display: block;
+		width: auto;
+		text-align: center;
+	}
