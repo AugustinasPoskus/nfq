@@ -1,4 +1,6 @@
-
+	.container{
+		margin: 100px;
+	}
 	.list-group{
 		width: 400px;
 		height: auto;
@@ -22,13 +24,15 @@
 		background-color: #ddd;
 	}
 	h2{
-		text-align: center
+		text-align: center;
+		margin: 10px;
 	}
 	p{
 		text-align: center
 	}
 	.pagination {
 		display: block;
-		width: auto;
+		width:  auto;
 		text-align: center;
+		margin: 10px;
 	}
