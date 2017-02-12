@@ -1,6 +1,6 @@
 <?PHP
-require_once('/config/config.php');
-$sql = "SELECT COUNT(*) FROM `heroku_eec8414836f0513`.book";
+require_once('/connect_db.php');
+$sql = "SELECT COUNT(*) FROM `heroku_0a0df9fb0b9482b`.book";
 $query = mysqli_query($db_conx, $sql);
 $row = mysqli_fetch_row($query);
 $rows = $row[0];
@@ -19,7 +19,7 @@ if ($pagenum < 1) {
     $pagenum = $last; 
 }
 $limit = 'LIMIT ' .($pagenum - 1) * $page_rows .',' .$page_rows;
-$sql = "SELECT ID, Title FROM `heroku_eec8414836f0513`.book $limit";
+$sql = "SELECT ID, Title FROM `heroku_0a0df9fb0b9482b`.book $limit";
 $query = mysqli_query($db_conx, $sql);
 $textline1 = "Books (<b>$rows</b>)";
 $paginationCtrls = '';
@@ -64,8 +64,7 @@ mysqli_close($db_conx);
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 <body>
-<div style="background-color:blue">
-	HELLO
+<div>
   <h2><?php echo $textline1; ?></h2>
   <div class="list-group"><?php echo $list; ?></div>
   <div class="pagination" id="pagination_controls"><?php echo $paginationCtrls; ?></div>

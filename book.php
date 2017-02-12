@@ -1,9 +1,9 @@
 <?PHP
-require_once('/config/config.php');
+require_once('/connect_db.php');
 $Id = $_GET['id'];
-$sql = "SELECT Id, Title, Release_year, Genre FROM `heroku_eec8414836f0513`.book WHERE Id = $Id";
-$sql2 = "SELECT At.Name, At.LastName FROM `heroku_eec8414836f0513`.book AS Bk , 
-`heroku_eec8414836f0513`.author AS At, `heroku_eec8414836f0513`.bookauthors AS BA 
+$sql = "SELECT Id, Title, Release_year, Genre FROM `heroku_0a0df9fb0b9482b`.book WHERE Id = $Id";
+$sql2 = "SELECT At.Name, At.LastName FROM `heroku_0a0df9fb0b9482b`.book AS Bk , 
+`heroku_0a0df9fb0b9482b`.author AS At, `heroku_0a0df9fb0b9482b`.bookauthors AS BA 
 WHERE BA.BookId =  $Id AND Bk.Id = BA.BookId AND At.Id = BA.AuthorId";
 $result = @mysqli_query($db_conx, $sql);
 while ($row = mysqli_fetch_row($result)) {
@@ -30,6 +30,9 @@ while ($row = mysqli_fetch_array($result1, MYSQL_BOTH)) {
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
     <title><?php echo $Title.' by '.$Author; ?></title>
 
@@ -48,7 +51,7 @@ while ($row = mysqli_fetch_array($result1, MYSQL_BOTH)) {
 
 </head>
 
-<body >
+<body>
 
     <!-- Page Content -->
     <div class="container">
