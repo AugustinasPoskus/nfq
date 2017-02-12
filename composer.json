@@ -1,4 +1,4 @@
 {
     "name": "augustinas/project",
-    "require": {'home.php'}
+    "require": {}
 }
