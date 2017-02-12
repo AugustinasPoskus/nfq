@@ -16,12 +16,11 @@ $result1 = @mysqli_query($db_conx, $sql2);
 $totalCount = mysqli_num_rows($result1);
 $Author='';
 $count = 1;
-while ($row = mysqli_fetch_array($result1, MYSQL_BOTH)) {
+while ($row = mysqli_fetch_row($result1)) {
 	$Author.=$row[0].' '.$row[1];
 	if($count != $totalCount)
 		$Author.=', ';
 	$count++;
-    printf("<br/>Author name: %s</br>Author lastname: %s", $row[0], $row[1]);
 }
 ?>
  <!DOCTYPE html>
