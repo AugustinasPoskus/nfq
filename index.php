@@ -1,5 +1,5 @@
 <?PHP
-require_once('/connect_db.php');
+require_once('connect_db.php');
 $sql = "SELECT COUNT(*) FROM `heroku_0a0df9fb0b9482b`.book";
 $query = mysqli_query($db_conx, $sql);
 $row = mysqli_fetch_row($query);
