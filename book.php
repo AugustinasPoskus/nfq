@@ -1,9 +1,9 @@
 <?PHP
 require_once('/config/config.php');
 $Id = $_GET['id'];
-$sql = "SELECT Id, Title, Release_year, Genre FROM `heroku_0a0df9fb0b9482b`.book WHERE Id = $Id";
-$sql2 = "SELECT At.Name, At.LastName FROM `heroku_0a0df9fb0b9482b`.book AS Bk , 
-`heroku_0a0df9fb0b9482b`.author AS At, `heroku_0a0df9fb0b9482b`.bookauthors AS BA 
+$sql = "SELECT Id, Title, Release_year, Genre FROM `heroku_eec8414836f0513`.book WHERE Id = $Id";
+$sql2 = "SELECT At.Name, At.LastName FROM `heroku_eec8414836f0513`.book AS Bk , 
+`heroku_eec8414836f0513`.author AS At, `heroku_eec8414836f0513`.bookauthors AS BA 
 WHERE BA.BookId =  $Id AND Bk.Id = BA.BookId AND At.Id = BA.AuthorId";
 $result = @mysqli_query($db_conx, $sql);
 while ($row = mysqli_fetch_row($result)) {
