@@ -19,7 +19,7 @@ if ($pagenum < 1) {
     $pagenum = $last; 
 }
 $limit = 'LIMIT ' .($pagenum - 1) * $page_rows .',' .$page_rows;
-$sql = "SELECT ID, Title FROM `heroku_0a0df9fb0b9482b`.book $limit";
+$sql = "SELECT id, title FROM `heroku_0a0df9fb0b9482b`.book $limit";
 $query = mysqli_query($db_conx, $sql);
 $textline1 = "Books (<b>$rows</b>)";
 $paginationCtrls = '';
@@ -47,9 +47,9 @@ if($last != 1){
 }
 $list = '';
 while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
-	$Id = $row["ID"];
-	$Title = $row["Title"];
-	$list .= '<p><a class="list-group-item list-group-item-action" href="book.php?id='.$Id.'">'.$Title.'</a></p>';
+	$id = $row["id"];
+	$title = $row["title"];
+	$list .= '<p><a class="list-group-item list-group-item-action" href="book.php?id='.$id.'">'.$title.'</a></p>';
 }
 mysqli_close($db_conx);
 ?>
@@ -64,7 +64,7 @@ mysqli_close($db_conx);
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 <body>
-<div>
+<div class="container">
   <h2><?php echo $textline1; ?></h2>
   <div class="list-group"><?php echo $list; ?></div>
   <div class="pagination" id="pagination_controls"><?php echo $paginationCtrls; ?></div>

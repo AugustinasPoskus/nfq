@@ -1,25 +1,24 @@
 <?PHP
 require_once('connect_db.php');
 $Id = $_GET['id'];
-$sql = "SELECT Id, Title, Release_year, Genre FROM `heroku_0a0df9fb0b9482b`.book WHERE Id = $Id";
+$sql = "SELECT Id, title, release_year, Genre FROM `heroku_0a0df9fb0b9482b`.book WHERE Id = $Id";
 $sql2 = "SELECT At.Name, At.LastName FROM `heroku_0a0df9fb0b9482b`.book AS Bk , 
 `heroku_0a0df9fb0b9482b`.author AS At, `heroku_0a0df9fb0b9482b`.bookauthors AS BA 
-WHERE BA.BookId =  $Id AND Bk.Id = BA.BookId AND At.Id = BA.AuthorId";
+WHERE BA.BookId =  $Id AND Bk.Id = BA.BookId AND At.Id = BA.authorId";
 $result = @mysqli_query($db_conx, $sql);
 while ($row = mysqli_fetch_row($result)) {
-	$Title=$row[1];
-	$Release_year=$row[2];
-	$Genre=$row[3];
-	//printf ("<br/> ID : %s <br/> Title : %s <br/> Release year: %s <br/> Genre : %s", $row[0], $row[1], $row[2], $row[3]);
+	$title=$row[1];
+	$release_year=$row[2];
+	$genre=$row[3];
 }
 $result1 = @mysqli_query($db_conx, $sql2);
 $totalCount = mysqli_num_rows($result1);
-$Author='';
+$author='';
 $count = 1;
 while ($row = mysqli_fetch_row($result1)) {
-	$Author.=$row[0].' '.$row[1];
+	$author.=$row[0].' '.$row[1];
 	if($count != $totalCount)
-		$Author.=', ';
+		$author.=', ';
 	$count++;
 }
 ?>
@@ -30,7 +29,7 @@ while ($row = mysqli_fetch_row($result1)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?php echo $Title.' by '.$Author; ?></title>
+    <title><?php echo $title.' by '.$author; ?></title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/1-col-portfolio.css" rel="stylesheet">
 </head>
@@ -39,8 +38,8 @@ while ($row = mysqli_fetch_row($result1)) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><?php echo $Title; ?>
-                    <small><?php echo ' by ' . $Author; ?></small>
+                <h1 class="page-header"><?php echo $title; ?>
+                    <small><?php echo ' by ' . $author; ?></small>
                 </h1>
             </div>
         </div>
@@ -52,8 +51,8 @@ while ($row = mysqli_fetch_row($result1)) {
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>Released in: <?php echo $Release_year ?></h3>
-                <h4>Genre: <?php echo $Genre ?></h4>
+                <h3>Released in: <?php echo $release_year ?></h3>
+                <h4>Genre: <?php echo $genre ?></h4>
             </div>
         </div>
     
