@@ -64,7 +64,7 @@ mysqli_close($db_conx);
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 <body>
-<div>
+<div style="background-color:blue">
 	HELLO
   <h2><?php echo $textline1; ?></h2>
   <div class="list-group"><?php echo $list; ?></div>
