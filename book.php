@@ -21,9 +21,8 @@ while ($row = mysqli_fetch_array($result1, MYSQL_BOTH)) {
 	if($count != $totalCount)
 		$Author.=', ';
 	$count++;
-   // printf("<br/>Author name: %s</br>Author lastname: %s", $row[0], $row[1]);
+    printf("<br/>Author name: %s</br>Author lastname: %s", $row[0], $row[1]);
 }
-echo $totalCount;
 ?>
  <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +41,7 @@ echo $totalCount;
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header"><?php echo $Title; ?>
-                    <small><?php echo' by '.$Author; ?></small>
+                    <small><?php echo ' by ' . $Author; ?></small>
                 </h1>
             </div>
         </div>
